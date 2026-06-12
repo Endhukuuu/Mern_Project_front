@@ -30,8 +30,8 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem('sportify_token');
       const [bookingsRes, groundsRes] = await Promise.all([
-        fetch('http://localhost:5001/api/bookings/all', { headers: { 'Authorization': `Bearer ${token}` } }),
-        fetch('http://localhost:5001/api/grounds')
+        fetch('https://mern-project-back-0ohs.onrender.com/api/bookings/all', { headers: { 'Authorization': `Bearer ${token}` } }),
+        fetch('https://mern-project-back-0ohs.onrender.com/api/grounds')
       ]);
 
       if (bookingsRes.ok) setBookings(await bookingsRes.json());
@@ -53,7 +53,7 @@ const AdminDashboard = () => {
         const formData = new FormData();
         formData.append('image', uploadFile);
 
-        const uploadRes = await fetch('http://localhost:5001/api/upload', {
+        const uploadRes = await fetch('https://mern-project-back-0ohs.onrender.com/api/upload', {
           method: 'POST',
           headers: { 'Authorization': `Bearer ${token}` },
           body: formData
@@ -67,13 +67,13 @@ const AdminDashboard = () => {
         }
       }
 
-      const res = await fetch('http://localhost:5001/api/grounds', {
+      const res = await fetch('https://mern-project-back-0ohs.onrender.com/api/grounds', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ ...newGround, pricePerHour: Number(newGround.pricePerHour), image: `http://localhost:5001${imagePath}` })
+        body: JSON.stringify({ ...newGround, pricePerHour: Number(newGround.pricePerHour), image: `https://mern-project-back-0ohs.onrender.com${imagePath}` })
       });
       if (res.ok) {
         alert('Ground added successfully!');
@@ -92,7 +92,7 @@ const AdminDashboard = () => {
     if (!window.confirm('Are you sure you want to delete this ground?')) return;
     try {
       const token = localStorage.getItem('sportify_token');
-      const res = await fetch(`http://localhost:5001/api/grounds/${id}`, {
+      const res = await fetch(`https://mern-project-back-0ohs.onrender.com/api/grounds/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -109,7 +109,7 @@ const AdminDashboard = () => {
     if (!window.confirm('Are you sure you want to cancel this booking? (User will get 75% refund if future)')) return;
     try {
       const token = localStorage.getItem('sportify_token');
-      const res = await fetch(`http://localhost:5001/api/bookings/${bookingId}/cancel`, {
+      const res = await fetch(`https://mern-project-back-0ohs.onrender.com/api/bookings/${bookingId}/cancel`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}` }
       });

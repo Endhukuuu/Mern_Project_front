@@ -34,7 +34,7 @@ const Profile = () => {
         setLoadingBookings(true);
         try {
           const token = localStorage.getItem('sportify_token');
-          const res = await fetch('http://localhost:5001/api/bookings/my-bookings', {
+          const res = await fetch('https://mern-project-back-0ohs.onrender.com/api/bookings/my-bookings', {
             headers: { 'Authorization': `Bearer ${token}` }
           });
           if (res.ok) {
@@ -65,7 +65,7 @@ const Profile = () => {
       const bodyData = { fullName: editForm.fullName, phone: editForm.phone };
       if (editForm.password) bodyData.password = editForm.password;
 
-      const res = await fetch('http://localhost:5001/api/auth/me', {
+      const res = await fetch('https://mern-project-back-0ohs.onrender.com/api/auth/me', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

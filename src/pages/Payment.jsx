@@ -23,7 +23,7 @@ const Payment = () => {
   const handlePayNow = async () => {
     try {
       const token = localStorage.getItem('sportify_token');
-      const res = await fetch('http://localhost:5001/api/bookings', {
+      const res = await fetch('https://mern-project-back-0ohs.onrender.com/api/bookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

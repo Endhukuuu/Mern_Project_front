@@ -21,7 +21,7 @@ const GroundDetails = () => {
   useEffect(() => {
     const fetchGround = async () => {
       try {
-        const res = await fetch(`http://localhost:5001/api/grounds/${id}`);
+        const res = await fetch(`https://mern-project-back-0ohs.onrender.com/api/grounds/${id}`);
         if (res.ok) {
           const data = await res.json();
           setGround(data);
@@ -39,7 +39,7 @@ const GroundDetails = () => {
     if (selectedDate && ground) {
       const fetchBookedSlots = async () => {
         try {
-          const res = await fetch(`http://localhost:5001/api/bookings/slots/${id}/${selectedDate}`);
+          const res = await fetch(`https://mern-project-back-0ohs.onrender.com/api/bookings/slots/${id}/${selectedDate}`);
           if (res.ok) {
             const data = await res.json();
             setBookedSlots(data);

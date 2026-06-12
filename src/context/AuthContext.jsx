@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
       const token = localStorage.getItem('sportify_token');
       if (token) {
         try {
-          const res = await fetch('http://localhost:5001/api/auth/me', {
+          const res = await fetch('https://mern-project-back-0ohs.onrender.com/api/auth/me', {
             headers: { 'Authorization': `Bearer ${token}` }
           });
           if (res.ok) {

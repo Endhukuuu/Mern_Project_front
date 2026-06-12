@@ -14,7 +14,7 @@ const MyBookings = () => {
     const fetchMyBookings = async () => {
       try {
         const token = localStorage.getItem('sportify_token');
-        const res = await fetch('http://localhost:5001/api/bookings/my-bookings', {
+        const res = await fetch('https://mern-project-back-0ohs.onrender.com/api/bookings/my-bookings', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (res.ok) {
@@ -106,7 +106,7 @@ const MyBookings = () => {
     if (window.confirm('Are you sure you want to cancel this booking? You will receive a 75% refund.')) {
       try {
         const token = localStorage.getItem('sportify_token');
-        const res = await fetch(`http://localhost:5001/api/bookings/${bookingId}/cancel`, {
+        const res = await fetch(`https://mern-project-back-0ohs.onrender.com/api/bookings/${bookingId}/cancel`, {
           method: 'PUT',
           headers: { 'Authorization': `Bearer ${token}` }
         });

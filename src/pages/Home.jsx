@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     const fetchGrounds = async () => {
       try {
-        const res = await fetch('http://localhost:5001/api/grounds');
+        const res = await fetch('https://mern-project-back-0ohs.onrender.com/api/grounds');
         if (res.ok) {
           const data = await res.json();
           setAllGrounds(data);

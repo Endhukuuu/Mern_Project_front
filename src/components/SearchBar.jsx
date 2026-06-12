@@ -16,7 +16,7 @@ const SearchBar = ({ placeholder = "Search for grounds, locations, or sports..."
         return;
       }
       try {
-        const res = await fetch(`http://localhost:5001/api/grounds?search=${encodeURIComponent(query)}`);
+        const res = await fetch(`https://mern-project-back-0ohs.onrender.com/api/grounds?search=${encodeURIComponent(query)}`);
         if (res.ok) {
           const data = await res.json();
           setSuggestions(data.slice(0, 5)); // show top 5
