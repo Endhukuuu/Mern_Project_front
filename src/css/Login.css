@@ -1,0 +1,196 @@
+/* Login Page - Professional Split Layout */
+.login-page {
+  min-height: calc(100vh - 80px);
+  background: #FFFFFF; /* Pure white theme */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.login-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  width: 100%;
+  background: white;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Left Illustration */
+.login-illustration {
+  background: linear-gradient(135deg, #111827 0%, #374151 100%); /* Premium dark sporty */
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.illustration-content {
+  text-align: center;
+  max-width: 320px;
+}
+
+.illustration-logo {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 24px;
+  object-fit: contain;
+}
+
+.login-illustration h2 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.login-illustration p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  opacity: 0.95;
+}
+
+.feature-list {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.feature {
+  padding: 8px 0;
+  font-weight: 500;
+}
+
+/* Right Form */
+.login-form-container {
+  padding: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.form-card {
+  width: 100%;
+}
+
+.form-card h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.form-subtitle {
+  color: #6B7280;
+  margin-bottom: 32px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.1);
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #4B5563;
+}
+
+.forgot-link {
+  color: #111827;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.forgot-link:hover {
+  color: #374151;
+}
+
+.login-btn {
+  width: 100%;
+  background: #111827;
+  color: white;
+  border: none;
+  padding: 16px;
+  font-size: 1.2rem;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.login-btn:hover {
+  background: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.register-link {
+  text-align: center;
+  color: #6B7280;
+}
+
+.register-link a {
+  color: #111827;
+  font-weight: 600;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .login-illustration {
+    padding: 32px;
+  }
+  
+  .login-form-container {
+    padding: 32px;
+  }
+  
+  .sport-icons .icon {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+}

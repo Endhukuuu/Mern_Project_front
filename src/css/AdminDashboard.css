@@ -1,0 +1,197 @@
+.admin-dashboard {
+  padding: 40px 20px;
+  min-height: 80vh;
+  background: #F9FAFB;
+}
+
+.admin-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.5rem;
+  color: #111827;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.bookings-table-container {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th {
+  background: #F3F4F6;
+  padding: 16px;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 2px solid #E5E7EB;
+}
+
+.admin-table td {
+  padding: 16px;
+  border-bottom: 1px solid #E5E7EB;
+  color: #111827;
+  vertical-align: middle;
+}
+
+.text-sm {
+  font-size: 0.85rem;
+  color: #6B7280;
+  margin-top: 4px;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge.confirmed {
+  background: #DCFCE7;
+  color: #166534;
+}
+
+.status-badge.cancelled {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.admin-tab {
+  padding: 10px 20px;
+  background: #E5E7EB;
+  color: #374151;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-tab.active {
+  background: #111827;
+  color: #FFFFFF;
+}
+
+.grounds-management {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+}
+
+.add-ground-form-container {
+  background: #FFFFFF;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.add-ground-form-container h2 {
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.add-ground-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-ground-form input, .add-ground-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.admin-submit-btn {
+  background: #2563EB;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.admin-submit-btn:hover {
+  background: #1D4ED8;
+}
+
+.existing-grounds {
+  background: #FFFFFF;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.existing-grounds h2 {
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.admin-grounds-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.admin-ground-card {
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #F9FAFB;
+}
+
+.admin-ground-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.admin-ground-info {
+  padding: 15px;
+}
+
+.admin-ground-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #111827;
+}
+
+.admin-ground-info p {
+  color: #6B7280;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.delete-ground-btn {
+  width: 100%;
+  padding: 10px;
+  background: #EF4444;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.delete-ground-btn:hover {
+  background: #DC2626;
+}

@@ -1,0 +1,613 @@
+/* Global Styles - Full Width */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #FFFFFF;
+  color: #111827;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 48px;
+  color: #111827;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #2563EB;
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+
+/* Hero Section - Full Width */
+.hero {
+  width: 100%;
+  background: linear-gradient(135deg, #111827 0%, #374151 100%);
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  animation: fadeInUp 0.8s ease 0.1s both;
+}
+
+.hero-btn {
+  background: #22C55E;
+  color: white;
+  border: none;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero-btn:hover {
+  background: #16a34a;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Sports & Grounds Sections */
+.sports-section,
+.popular-grounds,
+.search-section {
+  padding: 80px 0;
+  width: 100%;
+}
+
+.sports-section {
+  background-color: #FFFFFF;
+}
+
+.sports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Sport Card */
+.sport-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.sport-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.sport-card-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.sport-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.sport-card:hover .sport-card-image img {
+  transform: scale(1.05);
+}
+
+.sport-card-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.sport-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.view-grounds-btn {
+  background: #2563EB;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-grounds-btn:hover {
+  background: #1d4ed8;
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(37,99,235,0.3);
+}
+
+/* Ground Card */
+.grounds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.ground-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.ground-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.ground-card-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.ground-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.ground-card:hover .ground-card-image img {
+  transform: scale(1.03);
+}
+
+.ground-card-content {
+  padding: 20px;
+}
+
+.ground-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.ground-location {
+  color: #6B7280;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.ground-price {
+  font-weight: bold;
+  color: #2563EB;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.ground-rating {
+  color: #F59E0B;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.book-now-btn {
+  background: #2563EB;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 40px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.book-now-btn:hover {
+  background: #1d4ed8;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.4);
+}
+
+/* Search & Filter */
+.search-section {
+  background-color: white;
+}
+
+.search-filters {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.search-input, .filter-select {
+  padding: 14px 24px;
+  border: 1px solid #E5E7EB;
+  border-radius: 60px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+  background: white;
+}
+
+.search-input:focus, .filter-select:focus {
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .sports-section, .popular-grounds, .search-section {
+    padding: 50px 0;
+  }
+}
+/* Top Rated Section */
+.top-rated {
+  padding: 80px 0;
+  background-color: #FFFFFF;
+}
+
+/* How It Works Section */
+.how-it-works {
+  padding: 80px 0;
+  background-color: #FFFFFF;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.step-card {
+  text-align: center;
+  padding: 32px 24px;
+  background: white;
+  border-radius: 24px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.step-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.step-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.step-card p {
+  color: #6B7280;
+  line-height: 1.5;
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 80px 0;
+  background-color: #FFFFFF;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.testimonial-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 32px 28px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #E5E7EB;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.testimonial-avatar {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 16px;
+}
+
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2563EB;
+}
+
+.testimonial-rating {
+  margin-bottom: 16px;
+  color: #F59E0B;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4B5563;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.testimonial-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.testimonial-role {
+  font-size: 0.85rem;
+  color: #6B7280;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #111827 0%, #374151 100%);
+  text-align: center;
+  color: white;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 32px;
+  opacity: 0.95;
+}
+
+.cta-btn {
+  background: #22C55E;
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn:hover {
+  background: #16a34a;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive additions */
+@media screen and (max-width: 768px) {
+  .steps-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .cta-section p {
+    font-size: 1rem;
+  }
+  
+  .top-rated,
+  .how-it-works,
+  .testimonials,
+  .cta-section {
+    padding: 50px 0;
+  }
+}
+/* Ground Card Enhancements */
+.ground-card {
+  position: relative;
+}
+
+.ground-card-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.ground-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ground-card:hover .ground-card-overlay {
+  opacity: 1;
+}
+
+.quick-book-btn {
+  background: #22C55E;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-weight: 600;
+  cursor: pointer;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.ground-card:hover .quick-book-btn {
+  transform: translateY(0);
+}
+
+.quick-book-btn:hover {
+  background: #16a34a;
+  transform: scale(1.05);
+}
+
+.ground-price-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ground-price span {
+  font-size: 0.8rem;
+  color: #6B7280;
+  font-weight: normal;
+}
+
+.ground-rating {
+  background: #FEF3C7;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.book-now-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.book-now-btn:hover {
+  gap: 12px;
+}
+/* Why Choose Sportify Arena Section */
+.why-choose {
+  padding: 80px 0;
+  background-color: #FFFFFF;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: white;
+  padding: 32px 24px;
+  border-radius: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid #E5E7EB;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.feature-card p {
+  color: #6B7280;
+  line-height: 1.5;
+}
