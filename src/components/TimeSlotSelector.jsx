@@ -53,7 +53,7 @@ const TimeSlotSelector = ({ slots, selectedSlots = [], onSelectSlots, bookedSlot
             <button
               key={index}
               type="button"
-              className={`slot-btn ${isSelected ? 'selected' : ''} ${isDisabled ? 'booked disabled' : ''}`}
+              className={`slot-btn ${isSelected ? 'selected' : ''} ${isBooked ? 'booked disabled' : ''} ${isPast && !isBooked ? 'past disabled' : ''}`}
               onClick={() => toggleSlot(slot)}
               disabled={isDisabled}
               title={isPast ? "This time slot has already passed" : isBooked ? "Already booked" : ""}

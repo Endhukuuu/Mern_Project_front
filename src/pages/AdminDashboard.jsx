@@ -12,11 +12,11 @@ const AdminDashboard = () => {
   const [grounds, setGrounds] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Form state for new ground
+  // Form state for new/edit ground
   const [newGround, setNewGround] = useState({
-    name: '', location: '', sportName: '', pricePerHour: '', description: '', mapsLink: ''
+    name: '', location: '', sportName: '', pricePerHour: '', description: '', mapsLink: '', image: ''
   });
-  const [uploadFile, setUploadFile] = useState(null);
+  const [editingId, setEditingId] = useState(null);
 
   useEffect(() => {
     if (user?.role !== 'admin') {
@@ -43,49 +43,49 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleAddGround = async (e) => {
+  const handleAddOrEditGround = async (e) => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('sportify_token');
-      let imagePath = '';
+      const url = editingId 
+        ? `https://mern-project-back-0ohs.onrender.com/api/grounds/${editingId}`
+        : 'https://mern-project-back-0ohs.onrender.com/api/grounds';
+      const method = editingId ? 'PUT' : 'POST';
 
-      if (uploadFile) {
-        const formData = new FormData();
-        formData.append('image', uploadFile);
-
-        const uploadRes = await fetch('https://mern-project-back-0ohs.onrender.com/api/upload', {
-          method: 'POST',
-          headers: { 'Authorization': `Bearer ${token}` },
-          body: formData
-        });
-
-        if (uploadRes.ok) {
-          imagePath = await uploadRes.text();
-        } else {
-          alert('Image upload failed!');
-          return;
-        }
-      }
-
-      const res = await fetch('https://mern-project-back-0ohs.onrender.com/api/grounds', {
-        method: 'POST',
+      const res = await fetch(url, {
+        method,
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ ...newGround, pricePerHour: Number(newGround.pricePerHour), image: `https://mern-project-back-0ohs.onrender.com${imagePath}` })
+        body: JSON.stringify({ ...newGround, pricePerHour: Number(newGround.pricePerHour) })
       });
       if (res.ok) {
-        alert('Ground added successfully!');
-        setNewGround({ name: '', location: '', sportName: '', pricePerHour: '', description: '', mapsLink: '' });
-        setUploadFile(null);
+        alert(editingId ? 'Ground updated successfully!' : 'Ground added successfully!');
+        setNewGround({ name: '', location: '', sportName: '', pricePerHour: '', description: '', mapsLink: '', image: '' });
+        setEditingId(null);
         fetchData();
       } else {
-        alert('Failed to add ground');
+        alert('Failed to save ground');
       }
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const handleEditClick = (ground) => {
+    setEditingId(ground._id);
+    setNewGround({
+      name: ground.name,
+      location: ground.location,
+      sportName: ground.sportName,
+      pricePerHour: ground.pricePerHour,
+      description: ground.description,
+      mapsLink: ground.mapsLink || '',
+      image: ground.image
+    });
+    // scroll to form
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDeleteGround = async (id) => {
@@ -194,16 +194,21 @@ const AdminDashboard = () => {
         {activeTab === 'grounds' && (
           <div className="grounds-management">
             <div className="add-ground-form-container">
-              <h2>Add New Ground</h2>
-              <form onSubmit={handleAddGround} className="add-ground-form">
+              <h2>{editingId ? 'Edit Ground' : 'Add New Ground'}</h2>
+              <form onSubmit={handleAddOrEditGround} className="add-ground-form">
                 <input type="text" placeholder="Ground Name" required value={newGround.name} onChange={e => setNewGround({...newGround, name: e.target.value})} />
                 <input type="text" placeholder="Location" required value={newGround.location} onChange={e => setNewGround({...newGround, location: e.target.value})} />
                 <input type="text" placeholder="Sport (e.g., Football, Cricket)" required value={newGround.sportName} onChange={e => setNewGround({...newGround, sportName: e.target.value})} />
-                <input type="number" placeholder="Price Per Hour ($)" required value={newGround.pricePerHour} onChange={e => setNewGround({...newGround, pricePerHour: e.target.value})} />
+                <input type="number" placeholder="Price Per Hour (₹)" required value={newGround.pricePerHour} onChange={e => setNewGround({...newGround, pricePerHour: e.target.value})} />
                 <input type="text" placeholder="Google Maps Link (Optional)" value={newGround.mapsLink} onChange={e => setNewGround({...newGround, mapsLink: e.target.value})} />
-                <input type="file" accept="image/*" required onChange={e => setUploadFile(e.target.files[0])} />
+                <input type="url" placeholder="Image URL (e.g. https://images.unsplash.com/...)" required value={newGround.image} onChange={e => setNewGround({...newGround, image: e.target.value})} />
                 <textarea placeholder="Description" rows="3" value={newGround.description} onChange={e => setNewGround({...newGround, description: e.target.value})}></textarea>
-                <button type="submit" className="admin-submit-btn">Add Ground</button>
+                <div className="d-flex gap-2">
+                  <button type="submit" className="admin-submit-btn flex-grow-1">{editingId ? 'Update Ground' : 'Add Ground'}</button>
+                  {editingId && (
+                    <button type="button" className="btn btn-secondary flex-grow-1" onClick={() => { setEditingId(null); setNewGround({ name: '', location: '', sportName: '', pricePerHour: '', description: '', mapsLink: '', image: '' }); }}>Cancel Edit</button>
+                  )}
+                </div>
               </form>
             </div>
 
@@ -220,9 +225,14 @@ const AdminDashboard = () => {
                       <div className="card-body d-flex flex-column p-3">
                         <h6 className="card-title fw-bold text-dark mb-1 text-truncate">{ground.name}</h6>
                         <p className="card-text text-muted mb-3" style={{ fontSize: '0.8rem' }}>📍 {ground.location}</p>
-                        <button onClick={() => handleDeleteGround(ground._id)} className="btn btn-danger w-100 mt-auto fw-bold" style={{ borderRadius: '8px' }}>
-                          Remove Ground
-                        </button>
+                        <div className="mt-auto d-flex gap-2">
+                          <button onClick={() => handleEditClick(ground)} className="btn btn-primary flex-grow-1 fw-bold" style={{ borderRadius: '8px' }}>
+                            Edit
+                          </button>
+                          <button onClick={() => handleDeleteGround(ground._id)} className="btn btn-danger flex-grow-1 fw-bold" style={{ borderRadius: '8px' }}>
+                            Remove
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
